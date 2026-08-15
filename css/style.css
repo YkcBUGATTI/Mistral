@@ -294,13 +294,26 @@ button { font-family: inherit; cursor: pointer; }
 .hero.is-in .hero__mini { opacity: 1; transform: none; }
 .hero__wordmark {
   display: inline-block;
-  width: min(72vw, 520px);
+  width: min(80vw, 640px);
   filter: invert(1);
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 1s var(--ease) .35s, transform 1s var(--ease) .35s;
 }
 .hero.is-in .hero__wordmark { opacity: 1; transform: none; }
+.hero__eyebrow {
+  margin-top: 1.4rem;
+  font-family: var(--font-mono);
+  font-size: clamp(.72rem, 1.6vw, .88rem);
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 233, .85);
+  text-shadow: 0 2px 18px rgba(0,0,0,.75);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 1s var(--ease) .6s, transform 1s var(--ease) .6s;
+}
+.hero.is-in .hero__eyebrow { opacity: 1; transform: none; }
 .hero__title {
   font-family: var(--font-display);
   font-weight: 400;
