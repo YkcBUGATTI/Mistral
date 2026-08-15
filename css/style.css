@@ -1108,8 +1108,9 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.7;
 }
 @media (max-width: 860px) {
-  .lineage { overflow-x: auto; }
+  .lineage { overflow-x: auto; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
   .lineage__row { grid-template-columns: repeat(4, minmax(230px, 1fr)); }
+  .lineage__item { scroll-snap-align: start; }
 }
 
 /* ---------- 圆环数据(风速计风格:细刻度 + 暖色) ---------- */
@@ -1336,6 +1337,12 @@ button { font-family: inherit; cursor: pointer; }
   .menu-overlay__nav a { font-size: 19px; }
   .hero__data { justify-content: flex-start; text-align: left; }
   .hero__title { font-size: clamp(2.6rem, 12.5vw, 4.6rem); }
+}
+/* 极窄屏:精简顶栏与 hero 副题,避免拥挤 */
+@media (max-width: 380px) {
+  .nav__brand-sub { display: none; }
+  .nav__lang { gap: 2px; }
+  .hero__eyebrow { font-size: .6rem; letter-spacing: .26em; line-height: 2; }
 }
 
 /* 规格章顶部数字条 */
