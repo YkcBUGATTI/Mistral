@@ -291,6 +291,15 @@ button { font-family: inherit; cursor: pointer; }
   transition: opacity 1s var(--ease) .5s, transform 1s var(--ease) .5s;
 }
 .hero.is-in .hero__mini { opacity: 1; transform: none; }
+.hero__wordmark {
+  display: inline-block;
+  width: min(72vw, 520px);
+  filter: invert(1);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 1s var(--ease) .35s, transform 1s var(--ease) .35s;
+}
+.hero.is-in .hero__wordmark { opacity: 1; transform: none; }
 .hero__title {
   font-family: var(--font-display);
   font-weight: 400;
@@ -879,9 +888,13 @@ button { font-family: inherit; cursor: pointer; }
 .figrow { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2.5vw, 1.8rem); margin-top: clamp(2rem, 5vh, 3rem); }
 .figrow--2 { grid-template-columns: repeat(2, 1fr); }
 .figrow .figure { margin: 0; }
+/* 图组内统一裁切,避免横竖混排显得杂乱 */
+.figrow .figure__media { aspect-ratio: 4/3; }
+.figrow .figure__media img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 @media (max-width: 860px) {
   .figrow, .figrow--2 { grid-template-columns: 1fr; }
   .figrow .figure + .figure { margin-top: 1.4rem; }
+  .figrow .figure__media { aspect-ratio: 16/10; }
 }
 
 /* ---------- 数据大卡(暖橙顶条) ---------- */
@@ -1324,7 +1337,7 @@ button { font-family: inherit; cursor: pointer; }
 .spec-nums b {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2rem, 4.6vw, 3.4rem);
+  font-size: clamp(1.25rem, 2.6vw, 1.9rem);
   line-height: 1;
   display: block;
 }
